@@ -172,6 +172,4 @@ $result_kelas = $conn->query($query_kelas);
     <!-- Modal structures similar to add modal -->
     <?php endwhile; ?>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    <?php include 'includes/footer.php'; ?>

@@ -2,8 +2,8 @@
 session_start();
 require_once 'config/db.php';
 
-// Redirect if already logged in
-if(isset($_SESSION['user_id'])) {
+// Redirect jika sudah login
+if (isset($_SESSION['user_id'])) {
     header("Location: index.php");
     exit();
 }
@@ -25,7 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         if ($result->num_rows == 1) {
             $user = $result->fetch_assoc();
-            if (password_verify($password, $user['password'])) {
+            // Perbandingan langsung tanpa hash
+            if ($password == $user['password']) {
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['role'] = $user['role'];
                 $_SESSION['nama'] = $user['nama'];
@@ -47,6 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="id">
@@ -111,6 +113,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    <?php include 'includes/footer.php'; ?>

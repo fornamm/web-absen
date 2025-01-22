@@ -249,7 +249,4 @@ $result_siswa = $conn->query($query_siswa);
         </div>
     </div>
     <?php endwhile; ?>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    <?php include 'includes/footer.php'; ?>
